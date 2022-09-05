@@ -26,6 +26,17 @@ Open terminal and run below comment to start grpc server
 
     $ python manage.py grpcrunserver --dev
     
+note: if you getting error like below
+
+    TypeError: requires_system_checks must be a list or tuple.
+    
+comment following lines in myvenv/lib/python3.8/site-packages/django/core/management/base.py
+
+    if (
+            not isinstance(self.requires_system_checks, (list, tuple))
+            and self.requires_system_checks != ALL_CHECKS
+        ):
+            raise TypeError("requires_system_checks must be a list or tuple.")
    
 Open another terminal to start client
 
