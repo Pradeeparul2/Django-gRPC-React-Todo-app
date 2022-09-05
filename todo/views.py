@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from google.protobuf.json_format import MessageToDict
 from .serializers import TodoProtoSerializer
 from django.http import JsonResponse
+from django.shortcuts import render
 
 
 def create_client():
@@ -55,7 +56,13 @@ def update_task(request):
         return JsonResponse(MessageToDict(task))
 
 
+@csrf_exempt
 def delete_task(request, id):
     client_stub = create_client()
     task = client_stub.Destroy(todo_pb2.Todo(id=id))
     return JsonResponse({})
+
+
+def index(request):
+    context = {}
+    return render(request, "index.html", context)
