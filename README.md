@@ -11,7 +11,7 @@ A simple Todo app backend build with Django and gRPC frontend build with React j
 
 To get this repository, run the following command inside your git enabled terminal
 
-    $ git clone https://github.com/Pradeeparul2/todo_app.git
+    $ git clone https://github.com/Pradeeparul2/Django-gRPC-React-Todo-app.git
     
 Create virtual environment and install requirements
 
