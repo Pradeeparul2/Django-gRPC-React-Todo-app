@@ -19,6 +19,9 @@ Create virtual environment and install requirements
     
     $ pip install -r requirements.txt
     
+    $ python manage.py makemigrations
+    $ python manage.py migrate
+    
 Open terminal and run below comment to start grpc server
 
     $ python manage.py grpcrunserver --dev
