@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package todo;
+
+import "google/protobuf/empty.proto";
+
+service TodoController {
+    rpc List(TodoListRequest) returns (stream Todo) {}
+    rpc Create(Todo) returns (Todo) {}
+    rpc Retrieve(TodoRetrieveRequest) returns (Todo) {}
+    rpc Update(Todo) returns (Todo) {}
+    rpc Destroy(Todo) returns (google.protobuf.Empty) {}
+}
+
+message Todo {
+    int64 id = 1;
+    string task = 2;
+    bool is_completed = 3;
+    string created = 4;
+}
+
+message TodoListRequest {
+}
+
+message TodoRetrieveRequest {
+    int64 id = 1;
+}
